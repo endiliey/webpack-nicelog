@@ -1,16 +1,9 @@
-# webpack-log-plugin
+<h1 align="center">Webpack-log-plugin</h1>
 
-> Nicer log for your webpack :)
-
-
-***Success***
-
-[success](preview/success.gif)
-
-***Error***
-
-[error](preview/error.gif)
-
+<h1 align="center">
+  <img src="preview/success.gif" width="400px" /> 
+  <img src="preview/error.gif" width="400px" />
+</h1>
 
 ## Install
 
