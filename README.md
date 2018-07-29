@@ -1,6 +1,6 @@
 <h1 align="center">Webpack-NiceLog</h1>
 
-![demo](preview/demo.gif)
+![preview GIF](https://github.com/endiliey/webpack-nicelog/blob/master/demo.gif?raw=true)
 
 ## Install
 
