@@ -1,11 +1,11 @@
-<h1 align="center">Webpack-log-plugin</h1>
+<h1 align="center">Webpack-NiceLog</h1>
 
 ![demo](preview/demo.gif)
 
 ## Install
 
 ```
-$ npm install webpack-log-plugin --save-dev
+$ npm install webpack-nicelog --save-dev
 ```
 
 
@@ -13,12 +13,12 @@ $ npm install webpack-log-plugin --save-dev
 
 ```js
 // webpack.config.js
-const WebpackLogPlugin = require('webpack-log-plugin');
+const WebpackNiceLog = require('webpack-nicelog');
 
 module.exports = {
   // ...
   plugins: [
-    new WebpackLogPlugin()
+    new WebpackNiceLog()
   ]
 }
 ```
@@ -26,7 +26,7 @@ module.exports = {
 
 ## API
 
-### WebpackLogPlugin(options)
+### WebpackNiceLog(options)
 
 #### options.onDone (optional)
 

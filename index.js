@@ -16,18 +16,18 @@ function showError(str, arr) {
   console.log(msg);
 }
 
-class WebpackLogPlugin {
+class WebpackNiceLog {
   constructor(options = {}) {
     this.onDone = options.onDone;
   }
 
   apply(compiler) {
     const logger = ora(chalk.blue('Compiling ...'));
-    compiler.hooks.compile.tap('WebpackLogin', () => {
+    compiler.hooks.compile.tap('WebpackNiceLog', () => {
       logger.start();
     });
 
-    compiler.hooks.done.tap('WebpackLogPlugin', stats => {;
+    compiler.hooks.done.tap('WebpackNiceLog', stats => {;
       logger.stop();
       clearScreen()
 
@@ -67,8 +67,8 @@ class WebpackLogPlugin {
         this.onDone();
       }
     });
-    compiler.hooks.invalid.tap('WebpackLogPlugin', clearScreen);
+    compiler.hooks.invalid.tap('WebpackNiceLog', clearScreen);
   }
 }
 
-module.exports = WebpackLogPlugin;
+module.exports = WebpackNiceLog;
