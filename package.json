@@ -7,6 +7,9 @@
   "engines": {
     "node": ">=8"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "webpack-plugin",
     "webpack",
