@@ -1,0 +1,27 @@
+{
+  "name": "webpack-log-plugin",
+  "version": "1.0.0",
+  "description": "Nicer log for your webpack :)",
+  "main": "index.js",
+  "repository": "endiliey/webpack-log-plugin",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "webpack-plugin",
+    "webpack",
+    "pretty",
+    "console",
+    "output"
+  ],
+  "author": "endiliey",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "ora": "^3.0.0",
+    "react-dev-utils": "^5.0.1"
+  }
+}
