@@ -19,12 +19,17 @@ function showError(str, arr) {
 class WebpackNiceLog {
   constructor(options = {}) {
     this.onDone = options.onDone;
+    this.compileMessage = options.compileMessage;
   }
 
   apply(compiler) {
-    const logger = ora(chalk.blue('Compiling ...'));
+    const logger = ora();
     compiler.hooks.compile.tap('WebpackNiceLog', () => {
-      logger.start();
+      if (this.compileMessage !== 'none') {
+        const text = this.compileMessage || 'Compiling ...';
+        logger.text = chalk.blue(text);
+        logger.start();
+      }
     });
 
     compiler.hooks.done.tap('WebpackNiceLog', stats => {;
