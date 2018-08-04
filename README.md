@@ -1,6 +1,6 @@
 <h1 align="center">Webpack-NiceLog</h1>
 
-![preview GIF](https://github.com/endiliey/webpack-nicelog/blob/master/demo.gif?raw=true)
+![preview GIF](https://github.com/endiliey/webpack-nicelog/blob/master/preview.gif?raw=true)
 
 ## Install
 
@@ -18,9 +18,7 @@ const WebpackNiceLog = require('webpack-nicelog');
 module.exports = {
   // ...
   plugins: [
-    new WebpackNiceLog({
-      onDone: () => console.log('test');
-    })
+    new WebpackNiceLog()
   ]
 }
 ```
@@ -32,15 +30,30 @@ module.exports = {
 
 ## Options
 
-### `compileMessage`
-  - Default: `Compiling ...`
+### `name`
+  - Default: `webpack`
 
-Message to display during compilation step. Use `none` to disable any display.
+Display name
+
+### `color`
+  - Default: `green`
+
+Display color (can be HEX like `#xxyyzz` or a web color like `green`).
+
+### `stream`
+  - Default: `process.stderr`
+
+Output stream.
+
+### `minimal`
+  - Default: Auto enabled on CI, non-TTY and test environments
+
+Hide progress bar and only show Compiling/Compiled messages.
 
 ### `onDone`
-  - Type: `Function()`
+  - Type: `Function(stats)`
 
-A function that will be called when **all** builds are finished.
+A function that will be called when **all** builds are finished (no errors).
 
 ## License
 

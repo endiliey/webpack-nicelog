@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "ora": "^3.0.0",
-    "react-dev-utils": "^5.0.1"
+    "react-dev-utils": "^5.0.1",
+    "webpackbar": "^2.6.1"
   }
 }

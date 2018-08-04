@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const ora = require('ora');
+const WebpackBar = require('webpackbar');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 
 function clearScreen() {
@@ -16,24 +16,16 @@ function showError(str, arr) {
   console.log(msg);
 }
 
-class WebpackNiceLog {
-  constructor(options = {}) {
+class WebpackNiceLog extends WebpackBar {
+  constructor(options) {
+    super(Object.assign(options, {compiledIn: false, profile: false, done: undefined}));
     this.onDone = options.onDone;
-    this.compileMessage = options.compileMessage;
   }
 
   apply(compiler) {
-    const logger = ora();
-    compiler.hooks.compile.tap('WebpackNiceLog', () => {
-      if (this.compileMessage !== 'none') {
-        const text = this.compileMessage || 'Compiling ...';
-        logger.text = chalk.blue(text);
-        logger.start();
-      }
-    });
+    super.apply(compiler);
 
-    compiler.hooks.done.tap('WebpackNiceLog', stats => {;
-      logger.stop();
+    compiler.hooks.done.tap('WebpackNiceLog', stats => {
       clearScreen()
 
       const messages = formatWebpackMessages(stats.toJson({}, true));
@@ -69,10 +61,9 @@ class WebpackNiceLog {
       }
 
       if (this.onDone !== undefined && !messages.errors.length) {
-        this.onDone();
+        this.onDone(stats);
       }
     });
-    compiler.hooks.invalid.tap('WebpackNiceLog', clearScreen);
   }
 }
 
