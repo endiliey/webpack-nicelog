@@ -1,6 +1,6 @@
-const chalk = require('chalk');
-const WebpackBar = require('webpackbar');
-const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+var chalk = require('chalk');
+var WebpackBar = require('webpackbar');
+var formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 
 function clearScreen() {
   process.stdout.write(
@@ -31,9 +31,9 @@ class WebpackNiceLog extends WebpackBar {
         clearScreen()
       }
 
-      const messages = formatWebpackMessages(stats.toJson({}, true));
-      const time = new Date().toTimeString().match(/^[\d:]+/)[0];
-      const build = `${chalk.gray(`[${time}]`)} Build ${chalk.green(
+      var messages = formatWebpackMessages(stats.toJson({}, true));
+      var time = new Date().toTimeString().match(/^[\d:]+/)[0];
+      var build = `${chalk.gray(`[${time}]`)} Build ${chalk.green(
         stats.hash.slice(0, 8)
       )}`;
 
