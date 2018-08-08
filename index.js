@@ -20,13 +20,16 @@ class WebpackNiceLog extends WebpackBar {
   constructor(options) {
     super(Object.assign(options, {compiledIn: false, profile: false, done: undefined}));
     this.onDone = options.onDone;
+    this.clearScreen = options.clearScreen;
   }
 
   apply(compiler) {
     super.apply(compiler);
 
     compiler.hooks.done.tap('WebpackNiceLog', stats => {
-      clearScreen()
+      if (this.clearScreen) {
+        clearScreen()
+      }
 
       const messages = formatWebpackMessages(stats.toJson({}, true));
       const time = new Date().toTimeString().match(/^[\d:]+/)[0];

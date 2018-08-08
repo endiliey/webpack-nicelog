@@ -35,6 +35,11 @@ module.exports = {
 
 Display name
 
+### `clearScreen`
+  - Default: false
+
+Clear screen after every compilation.
+
 ### `color`
   - Default: `green`
 
