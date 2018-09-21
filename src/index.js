@@ -21,6 +21,7 @@ class WebpackNiceLog extends WebpackBar {
     super(Object.assign(options, {compiledIn: false, profile: false, done: undefined}));
     this.onDone = options.onDone;
     this.clearScreen = options.clearScreen;
+    this.skipBuildTime = options.skipBuildTime;
   }
 
   apply(compiler) {
@@ -44,18 +45,7 @@ class WebpackNiceLog extends WebpackBar {
         );
       }
 
-      if (messages.warnings.length) {
-        showError(
-          chalk.yellow(
-            `⚠️  ${build} finished in ${chalk.green(
-              stats.endTime - stats.startTime
-            )} ms with warnings !`
-          ),
-          messages.warnings
-        );
-      }
-
-      if (!messages.errors.length && !messages.warnings.length) {
+      if (!this.skipBuildTime && !messages.errors.length) {
         console.log(
           `✅  ${build} finished in ${chalk.green(
             stats.endTime - stats.startTime

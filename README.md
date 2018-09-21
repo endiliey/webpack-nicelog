@@ -35,6 +35,11 @@ module.exports = {
 
 Display name
 
+### `skipBuildTime`
+  - Default: false
+
+Do not show build time e.g: `Build finished in 1234 ms`
+
 ### `clearScreen`
   - Default: false
 
