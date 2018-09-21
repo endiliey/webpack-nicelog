@@ -1,6 +1,6 @@
 {
   "name": "webpack-nicelog",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Nicer log for your webpack :)",
   "main": "dist/index.js",
   "repository": "endiliey/webpack-nicelog",
